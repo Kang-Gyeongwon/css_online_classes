@@ -27,23 +27,30 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-      /* 여백넣기 - 안쪽 padding, 바깥쪽 margin */
     }
 
-    .wrap{
+    .wrap {
       width: 300px;
       /* 여백넣기 - 안쪽 padding, 바깥쪽 margin */
       margin: auto;
     }
 
-    .mybtn{
+    .mybtn {
       border: none;
       background-color: brown;
       border-radius: 10px;
       color: white;
       width: 300px;
       height: 40px;
+    }
+    .loginInput {
+      border-radius: 10px;
+      height: 20px;
+    }
+    .inputBox{
+      margin-top: 30;
+      margin-bottom: 30px;
+      margin-left: 20px;
     }
   </style>
   <body>
@@ -52,8 +59,10 @@
         <h1>로그인 페이지</h1>
         <h3>코딩의 시작, 띵동코딩</h3>
       </div>
-      <p>ID : <input type="text" /></p>
-      <p>PW : <input type="password" /></p>
+      <div class="inputBox">
+        <p>ID : <input type="text" class="loginInput" /></p>
+        <p>PW : <input type="password" class="loginInput" /></p>
+      </div>
       <button class="mybtn">로그인 하기</button>
     </div>
   </body>
