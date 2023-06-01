@@ -1,15 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width='device-width', initial-scale=1.0">
-  <title>띵동코딩 - 로그인 페이지</title>
-</head>
-<body>
-  <h1>로그인 페이지</h1>
-  <p>ID : <input type="text"></p>
-  <p>PW : <input type="password"></p>
-  <button>로그인 하기</button>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width='device-width', initial-scale=1.0" />
+    <title>띵동코딩 - 로그인 페이지</title>
+  </head>
+  <style>
+    .mytitle {
+      /* 백그라운드 이미지 불러오기 */
+      background-image: url("https://static.spartacodingclub.kr/media/main_carousel/1kq0i51tuqc2kfzp.png");
+      background-position: centers;
+      background-size: cover;
+
+      background-color: green;
+
+      width: 300px;
+      height: 250px;
+      color: white;
+
+      /* 둥글게 하기 */
+      border-radius: 10px;
+
+      /* 가운데 정렬 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      /* 여백넣기 - 안쪽 padding, 바깥쪽 margin */
+    }
+
+    .wrap{
+      width: 300px;
+      /* 여백넣기 - 안쪽 padding, 바깥쪽 margin */
+      margin: auto;
+    }
+
+    .mybtn{
+      border: none;
+      background-color: brown;
+      border-radius: 10px;
+      color: white;
+      width: 300px;
+      height: 40px;
+    }
+  </style>
+  <body>
+    <div class="wrap">
+      <div class="mytitle">
+        <h1>로그인 페이지</h1>
+        <h3>코딩의 시작, 띵동코딩</h3>
+      </div>
+      <p>ID : <input type="text" /></p>
+      <p>PW : <input type="password" /></p>
+      <button class="mybtn">로그인 하기</button>
+    </div>
+  </body>
 </html>
