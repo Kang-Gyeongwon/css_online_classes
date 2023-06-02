@@ -49,6 +49,43 @@
         cursor: pointer;
         color: rgb(28, 29, 30);
       }
+      .email > p {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 30px;
+        color: rgb(80, 82, 84);
+      }
+      .email > input {
+        width: 320px;
+        font-size: 16px;
+        margin-top: 10px;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid rgb(219, 221, 224);
+      }
+      .email > button {
+        width: 320px;
+        height: 60px;
+        margin: 30px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        gap: 10px;
+        border: none;
+        border-radius: 8px;
+        background-color: rgb(219, 221, 224);
+        cursor: pointer;
+      }
+      .email > span {
+        font-size: 14px;
+        text-align: center;
+        color: rgb(38, 52, 61);
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -62,6 +99,12 @@
         코딩 학습지
       </p>
       <button>카카오로 1초만에 시작하기</button>
+      <div class="email">
+        <p>이메일</p>
+        <input type="email" placeholder="이메일 주소를 입력해주세요" />
+        <button>다음</button>
+        <span>이메일이 기억나지 않아요.</span>
+      </div>
     </div>
   </body>
 </html>
