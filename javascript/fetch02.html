@@ -24,7 +24,11 @@
               let rack_name = rows[i]["stationName"];
               let bike_cnt = rows[i]["parkingBikeTotCnt"];
 
-              console.log(rack_name, bike_cnt);
+              let temp_html = `<tr>
+                                <td>거치대 위치 : ${rack_name}</td>
+                                <td>현재 거치된 따릉이 수 : ${bike_cnt}</td>
+                              </tr>`;
+              $("#seoulBicycle").append(temp_html);
             }
           });
       }
@@ -35,12 +39,7 @@
     <div>
       <button onclick="mise()">서울시 따릉이 정보</button>
       <p>모든 위치의 따릉이 현황을 보여주세요</p>
-      <ul id="seoulBicycle">
-        <tr>
-          <td>거치대 위치 : 102. 망원역 1번출구 앞</td>
-          <td>현재 거치된 따릉이 수 : 16</td>
-        </tr>
-      </ul>
+      <ul id="seoulBicycle"></ul>
     </div>
   </body>
 </html>
