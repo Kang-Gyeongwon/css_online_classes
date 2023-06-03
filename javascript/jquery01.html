@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>띵동코딩-제이쿼리 연습</title>
+    <style>
+      .wrap {
+        margin: auto;
+      }
+      .peopleInSeoul {
+        margin-top: 20px;
+      }
+    </style>
+    <script>
+      function addPerson() {
+        // // 값 받아오기
+        // let name = $("#name").val();
+        // alert(name)
+        // // 지우기
+        // $("#names").hide();
+        // // 보이기
+        // $("#names").show();
+        // HTML 붙여넣기
+        let name = $("#name").val();
+        let temp_html = `<li>${name}</li>`;
+        $("#names").append(temp_html);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <div class="wrap">
+        <input id="name" type="text" placeholder="이름을 입력해 주세요" />
+      </div>
+      <button onclick="addPerson()">입력</button>
+      <div class="peopleInSeoul">입력한 이름</div>
+      <ul id="names">
+        <li>홍길동</li>
+      </ul>
+    </div>
+  </body>
+</html>
