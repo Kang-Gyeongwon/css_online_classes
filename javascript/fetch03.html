@@ -9,7 +9,24 @@
     <style></style>
     <script>
       function movies() {
-        alert("안녕하세요!");
+        let url =
+          "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20220723";
+        $("#movieList").empty();
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            let rows = data["boxOfficeResult"]["dailyBoxOfficeList"];
+            for (let i = 0; i < rows.length; i++) {
+              let name = rows[i]["movieNm"];
+              let rank = rows[i]["rank"];
+              let audi = rows[i]["audiAcc"];
+
+              if (audi > 500000) {
+                let temp_html = `<li>${rank} ${name}</li>`;
+                $("#movieList").append(temp_html);
+              }
+            }
+          });
       }
     </script>
   </head>
@@ -18,11 +35,7 @@
     <div class="wrap">
       <h2>일별 TOP 10 MOVIES</h2>
       <button onclick="movies()">확인</button>
-      <ul id="movieList">
-        <li>1 외계+인 1부</li>
-        <li>2 미니언즈2</li>
-        <li>3 탑건: 매버릭</li>
-      </ul>
+      <ul id="movieList"></ul>
     </div>
   </body>
 </html>
