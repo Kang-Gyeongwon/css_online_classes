@@ -41,6 +41,9 @@
       .gnb > a:last-child {
         margin-right: auto;
       }
+      .gnb > a:hover {
+        color: gray;
+      }
       .main {
         color: white;
         padding: 20px;
@@ -58,8 +61,18 @@
         padding: 50px;
         font-size: 32px;
       }
+      .today > div {
+        margin: 30px;
+        font-size: 15px;
+        width: 80%;
+      }
       .top > img {
         margin: 2px;
+      }
+      .top > img:hover,
+      .recommend > img:hover {
+        width: 210px;
+        margin: 10px;
       }
       .recommend > img {
         margin: 2px;
@@ -85,9 +98,11 @@
             let today_movie = movies[rand];
             let today_img = base_url + today_movie["backdrop_path"];
             let today_title = today_movie["title"];
+            let today_over = today_movie["overview"];
 
             $("#today").css("background-image", `url('${today_img}')`);
             $("#today > h1").text(today_title);
+            $("#today > div").text(today_over);
 
             // TOP 10 영화
             for (let i = 0; i < 10; i++) {
@@ -127,6 +142,7 @@
       <p>오늘의 영화</p>
       <div id="today" class="today">
         <h1>토르: 러브 앤 썬더</h1>
+        <div></div>
       </div>
       <p>오늘 한국의 Top 10 영화</p>
       <div id="top" class="top"></div>
