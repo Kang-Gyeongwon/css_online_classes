@@ -27,10 +27,23 @@
       body {
         background-color: black;
       }
+
+      .gnb {
+        display: flex; flex-direction: row;
+        justify-items: center; align-items: center;
+        padding: 20px
+      }
+      .gnb > a {
+        margin: 0px 40px;
+        color: white;
+      }
+      .gnb > a:last-child {
+        margin-right: auto;
+      }
     </style>
     <script>
       $(document).ready(function () {
-        movie();
+        movie(); // 로딩이 끝난후 자동으로 실행(html이 로딩 된 후 실행)
       });
 
       function movie() {
