@@ -24,6 +24,14 @@
           .then((res) => res.json())
           .then((data) => {
             let movies = data["results"];
+
+            for (let i = 0; i < movies.length; i++) {
+              let row = movies[i];
+              let title = row["original_title"];
+
+              let temp_html = `<li>${i + 1}. ${title}</li>`;
+              $("#movielists").append(temp_html);
+            }
           });
       }
     </script>
@@ -37,9 +45,6 @@
         <button onclick="movies()">확인</button>
       </div>
       <ul id="movielists">
-        <li>1. Thor: Love and Thunder</li>
-        <li>2. Thor: Love and Thunder</li>
-        <li>3. Thor: Love and Thunder</li>
       </ul>
     </div>
   </body>
