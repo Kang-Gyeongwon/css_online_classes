@@ -11,12 +11,36 @@
         margin: 10px 10px;
       }
     </style>
-    <script></script>
+    <script>
+      function mise() {
+        $("#city").empty();
+        let url =
+          "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99";
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            let rows = data["RealtimeCityAir"]["row"];
+            for (let i = 0; i < rows.length; i++) {
+              let gu = rows[i]["MSRSTE_NM"];
+              let value = rows[i]["IDEX_MVL"];
+              let status = rows[i]["IDEX_NM"];
+
+              if (value > 70 && value < 120) {
+                let temp_html = `<li>${gu}: ${value} (${status})</li>`;
+                $("#city").append(temp_html);
+              } else if (value > 120) {
+                let temp_html = `<li style ="color: red">${gu}: ${value} (${status})</li>`;
+                $("#city").append(temp_html);
+              }
+            }
+          });
+      }
+    </script>
   </head>
 
   <body>
     <div>
-      <button>미세먼지 정보</button>
+      <button onclick="mise()">미세먼지 정보</button>
       <div class="client">지역별</div>
       <ul id="city">
         <li>용산구 : 80</li>
