@@ -28,6 +28,15 @@
               let country = data[i]["country"];
               let active = data[i]["active"];
               let temp_html = "";
+
+              if (active > 1000000) {
+                temp_html = `<li class="covid">${country} : 현재 확진자 : ${active}</li>`;
+              } else if (active < 5000) {
+                temp_html = `<li class="safe">${country} : 현재 확진자 : ${active}</li>`;
+              } else {
+                temp_html = `<li>${country} : 현재 확진자 : ${active}</li>`;
+              }
+              $("#covidCountry").append(temp_html);
             }
           });
       }
