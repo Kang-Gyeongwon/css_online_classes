@@ -23,7 +23,28 @@
       }
     </style>
     <script>
-      function movieReviews() {}
+      let cnt = 0;
+      function movieReviews() {
+        let url = "http://spartacodingclub.shop/post";
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            let rows = data["articles"];
+            let image = rows[cnt]["image"];
+            let title = rows[cnt]["title"];
+            let comment = rows[cnt]["comment"];
+
+            let temp_html = `<img width="300" src="${image}" />
+                              <h2>${title}</h2>
+                              <div>${comment}</div>`;
+
+            // $("#moviesPic").attr("src", image);
+            // $("#movieTitle").text(title);
+            // $("#movieComment").text(comment);
+            $("#movie").append(temp_html)
+            cnt += 1;
+          });
+      }
     </script>
   </head>
 
@@ -31,12 +52,8 @@
     <div class="wrap">
       <h1>영화 버킷 리스트</h1>
       <button onclick="movieReviews()">다음</button>
-      <div>
-        <img
-          id="moviesPic"
-          width="300"
-          src="https://ddingdong.spartacodingclub.kr/images/common/logo-tb.svg"
-        />
+      <div id="movie">
+        <img id="moviesPic" width="300" src="" />
         <h2 id="movieTitle"></h2>
         <div id="movieComment"></div>
       </div>
