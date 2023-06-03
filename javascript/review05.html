@@ -22,7 +22,14 @@
         let url = `https://goweather.herokuapp.com/weather/${inputCity}`;
         fetch(url)
           .then((res) => res.json())
-          .then((data) => {});
+          .then((data) => {
+            let temp = data["temperatur"];
+            let wind = data["wind"];
+            let desc = data["description"];
+
+            let temp_html = `<li>${inputCity} : ${desc}, 온도: ${temp}, 풍속: ${wind}</li>`
+            $("#cityWeather").append(temp_html)
+          });
       }
     </script>
   </head>
