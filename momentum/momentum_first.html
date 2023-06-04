@@ -40,13 +40,24 @@
         text-decoration: none;
         font-weight: normal;
       }
+      body {
+        background-size: cover;
+      }
     </style>
     <script>
       $(document).ready(function () {
         renderGalleryItem();
       });
       //배경 사진 함수
-      function renderGalleryItem() {}
+      function renderGalleryItem() {
+        let url = "https://api.thecatapi.com/v1/images/search";
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            let imgurl = data[0]['url'];
+            $("#background").css("background-image", `url("${imgurl}")`)
+          });
+      }
     </script>
   </head>
 
