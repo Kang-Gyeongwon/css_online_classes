@@ -58,7 +58,7 @@
       }
       .focusTitle {
         padding-top: 0px;
-        font-size: 60px;
+        font-size: 40px;
       }
       .focusTodo {
         display: flex;
@@ -90,11 +90,16 @@
         color: white;
         padding: 5px;
       }
+      .currentTime {
+        font-size: 120px;
+        font-weight: bold;
+      }
     </style>
     <script>
       $(document).ready(function () {
         renderGalleryItem();
         renderCurrentWeather();
+        renderCurrentTime();
       });
       //배경 사진 함수
       function renderGalleryItem() {
@@ -116,12 +121,23 @@
             $("#currentWeather").text(temp);
           });
       }
+      // 현재 시간
+      function renderCurrentTime() {
+        let url = `http://worldtimeapi.org/api/timezone/Asia/Seoul`;
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            let time = data["datetime"].substr(11, 5);
+            $("#currentTime").text(time);
+          });
+      }
     </script>
   </head>
 
   <body id="background">
     <div id="currentWeather" class="currentWeather">+30c</div>
     <div class="main">
+      <div id="currentTime" class="currentTime">12:34</div>
       <!-- 인사 -->
       <div class="greeting">Hello, Jessy.</div>
       <!-- 오늘 중요 일정 입력-->
